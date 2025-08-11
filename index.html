@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="La tua app per studiare">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="StudyBuddy">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>StudyBuddy Web</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Re Os As Pe Ms Fs capture Ve calculateEventProperties js register register_once register_for_session unregister unregister_for_session qs getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty zs Ls createPersonProfile Us Rs Bs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ds debug I Ns getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_jpPoquCTZrIJTiqZcWTtm1VJAcFkndIOnlYdmSEipTR', {
+          api_host: 'https://a.studybuddy.it',
+          defaults: '2025-05-24',
+          person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+      })
+  </script>
+
+  <style>
+    /* Fonts and external resources */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+    
+    /* Variables */
+    :root {
+      --color-primary: #3a9b9b;
+      --color-secondary: #6366f1;
+      --color-background: #003737;
+      --color-surface: #fdffff;
+      --color-text: #1f2937;
+      --color-text-secondary: #6b7280;
+    }
+    
+    /* Base styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-background);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 28rem;
+      width: 91.666667%;
+      background-color: var(--color-surface);
+    }
+    
+    /* Typography */
+    .text-primary {
+      color: var(--color-primary);
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+      position: relative;
+      width: 100%;
+      height: 1rem;
+      background-color: #e5e7eb;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: var(--color-primary);
+      border-radius: 9999px;
+      animation: progress-animation 2.5s ease-out infinite;
+    }
+    
+    /* Animations */
+    @keyframes progress-animation {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <div class="mb-6">
+      <img src="logo_scritta_black.png" alt="StudyBuddy Logo" class="h-[150px] object-contain">
+    </div>
+    
+    <!-- Status Message -->
+    <h1 id="statusDisplay" class="text-xl font-bold mb-4 text-primary">
+      Loading resources...
+    </h1>
+    
+    <!-- Progress bar with CSS animation -->
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+
+  <script>
+    // Simplified tip rotation
+    const tips = [
+      "Caricando il timer...",
+      "Scrapando gli esami...",
+      "Calcolando la Streak...",
+      "Facendo il caffè...",
+      "Cercando l'oro nei fiumi..."
+    ];
+
+    const statusDisplay = document.getElementById('statusDisplay');
+    let currentTipIndex = 0;
+
+    // Simple tip rotation without typewriter effect
+    function rotateTips() {
+      statusDisplay.textContent = tips[currentTipIndex];
+      currentTipIndex = (currentTipIndex + 1) % tips.length;
+    }
+
+    // Initial call and interval for tip rotation
+    rotateTips();
+    setInterval(rotateTips, 4000);
+  </script>
+
+    <!-- Scripts -->
+    <script src="flutter_bootstrap.js" async></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js" defer></script>
+  
+</body>
+</html>
