@@ -1,0 +1,89 @@
+
+[
+    {
+        "id": "1",
+        "userId": "user_123",
+        "lastUpdated": "2023-10-01T12:00:00Z",
+        "version": 1,
+        "deleted": false,
+        "state": 1,
+        "start": "2023-10-01T08:00:00Z",
+        "endScheduled": 3600000,
+        "endActual": 3700000,
+        "breaksDone": [
+            {
+                "start": 1800000,
+                "end": 1860000
+            }
+        ],
+        "title": "Morning Study Session",
+        "freeMode": true,
+        "deepWork": false,
+        "tag": "Math",
+        "rating": 5,
+        "tasks": ["task1", "task2"],
+        "report": {
+            "timeTotal": 3700000,
+            "timeStudy": 3540000,
+            "timeBreak": 60000,
+            "nrBreaks": 1,
+            "points": 10.0,
+            "shortPomo": false
+        },
+        "remoteUpdated": 1,
+        "soundEnd": true,
+        "onLongBreak": false,
+        "endOriginal": 3600000,
+        "breaksTodo": [
+            {
+                "start": 3600000,
+                "end": 3660000
+            }
+        ],
+        "exam": null,
+        "preset": "default"
+    },
+    {
+        "id": "2",
+        "userId": "user_456",
+        "lastUpdated": "2023-10-02T12:00:00Z",
+        "version": 1,
+        "deleted": false,
+        "state": 1,
+        "start": "2023-10-02T09:00:00Z",
+        "endScheduled": 5400000,
+        "endActual": 5500000,
+        "breaksDone": [
+            {
+                "start": 2700000,
+                "end": 2760000
+            }
+        ],
+        "title": "Afternoon Study Session",
+        "freeMode": false,
+        "deepWork": true,
+        "tag": "Science",
+        "rating": 4,
+        "tasks": ["task3", "task4"],
+        "report": {
+            "timeTotal": 5500000,
+            "timeStudy": 5340000,
+            "timeBreak": 60000,
+            "nrBreaks": 1,
+            "points": 8.0,
+            "shortPomo": true
+        },
+        "remoteUpdated": 1,
+        "soundEnd": true,
+        "onLongBreak": false,
+        "endOriginal": 5400000,
+        "breaksTodo": [
+            {
+                "start": 5400000,
+                "end": 5460000
+            }
+        ],
+        "exam": null,
+        "preset": "default"
+    }
+]
